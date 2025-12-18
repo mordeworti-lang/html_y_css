@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 1: Grid Básico</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        /* Estilos específicos para este ejemplo */
+        .basic-grid {
+            display: grid;
+            /* 
+               Definimos 3 columnas:
+               1. 150px fijos
+               2. 1fr (una fracción del espacio restante)
+               3. 2fr (dos fracciones del espacio restante, es decir, el doble que la anterior)
+            */
+            grid-template-columns: 150px 1fr 2fr;
+
+            /* Definimos 2 filas de 100px cada una */
+            grid-template-rows: 100px 100px;
+
+            /* Espacio entre celdas */
+            gap: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Volver al inicio</a>
+
+        <h1>Ejemplo 1: Conceptos Básicos</h1>
+        <p>En este ejemplo vemos cómo definir columnas y filas explícitas.</p>
+
+        <div class="grid-container basic-grid">
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
+        </div>
+
+        <h3>Código CSS utilizado:</h3>
+        <pre><code>
+.basic-grid {
+    display: grid;
+    /* 150px, 1 parte, 2 partes */
+    grid-template-columns: 150px 1fr 2fr;
+    /* 2 filas de 100px */
+    grid-template-rows: 100px 100px;
+    gap: 15px;
+}
+        </code></pre>
+    </div>
+</body>
+
+</html>

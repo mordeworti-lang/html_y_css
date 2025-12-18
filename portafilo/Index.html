@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>my wed </title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+<body>
+    <!-- ========================================
+         HEADER CON FLEXBOX
+    ======================================== -->
+    <header>
+        <div class="header-info">
+            <img src="img/foto.jpg" alt="Foto de Jhon Zuluaga">
+            <h1>Jhon Stiven Zuluaga Jaramillo</h1>
+        </div>
+        
+        <!-- Navegación semántica con <nav> -->
+        <nav>
+            <ul>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#" onclick="window.open('masco/Mascotas.html', '_blank'); return false;"> Mascotas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- ========================================
+             SECCIÓN: SOBRE MÍ
+        ======================================== -->
+        <section id="sobre-mi">
+            <h2> Sobre mí</h2>
+            <p>
+                ¡Hola! Soy Jhon Stiven Zuluaga Jaramillo, un apasionado desarrollador web 
+                en constante aprendizaje. Me encanta crear experiencias digitales únicas 
+                y funcionales. Actualmente estoy mejorando mis habilidades en HTML5, CSS3, 
+                JavaScript y diseño responsivo. Mi objetivo es construir aplicaciones web 
+                que no solo sean hermosas, sino también intuitivas y accesibles para todos.
+            </p>
+        </section>
+
+        <!-- ========================================
+             SECCIÓN: PROYECTOS CON CSS GRID
+        ======================================== -->
+        <section id="proyectos">
+            <h2> Proyectos</h2>
+            <div class="proyectos-grid">
+                <div class="proyecto-card">
+                    <h3> Módulo Python</h3>
+                    <p>Sistema de automatización desarrollado en Python con funcionalidades avanzadas de procesamiento de datos.</p>
+                </div>
+                <div class="proyecto-card">
+                    <h3> Portafolio Web</h3>
+                    <p>Sitio web personal responsivo creado con HTML5, CSS3 y JavaScript moderno.</p>
+                </div>
+                <div class="proyecto-card">
+                    <h3> App Móvil</h3>
+                    <p>Aplicación híbrida para gestión de tareas con sincronización en la nube.</p>
+                </div>
+                <div class="proyecto-card">
+                    <h3> Galería Interactiva</h3>
+                    <p>Galería de imágenes con efectos de animación y filtros dinámicos usando CSS Grid.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             SECCIÓN: CONTACTO CON FORMULARIO
+        ======================================== -->
+        <section id="contacto">
+            <h2> Contacto</h2>
+            <form action="mailto:tucorreo@example.com" method="post" enctype="text/plain">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" placeholder="Tu nombre completo" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                
+                <button type="submit">Enviar Mensaje </button>
+            </form>
+        </section>
+    </div>
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+    <footer>
+        <p>&copy; 2024 Jhon Stiven Zuluaga Jaramillo. Todos los derechos reservados.</p>
+        <p>Hecho con  y mucho café </p>
+    </footer>
+</body>
+</html>

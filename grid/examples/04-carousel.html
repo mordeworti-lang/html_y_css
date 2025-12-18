@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 4: Carrusel con Grid</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .carousel-container {
+            /* Definimos el contenedor como grid */
+            display: grid;
+
+            /* 
+               grid-auto-flow: column 
+               Hace que los nuevos elementos se coloquen en columnas a la derecha,
+               en lugar de saltar a una nueva fila.
+            */
+            grid-auto-flow: column;
+
+            /* 
+               grid-auto-columns
+               Define el ancho de cada elemento del carrusel.
+               Aquí usamos un porcentaje para que se vea parte del siguiente.
+            */
+            grid-auto-columns: 80%;
+
+            gap: 20px;
+
+            /* Habilitamos el scroll horizontal */
+            overflow-x: auto;
+
+            /* Suavizamos el scroll (opcional pero recomendado) */
+            scroll-snap-type: x mandatory;
+
+            padding-bottom: 20px;
+            /* Espacio para la barra de scroll */
+        }
+
+        .carousel-item {
+            /* Alineación del scroll */
+            scroll-snap-align: center;
+
+            background: linear-gradient(45deg, #3498db, #8e44ad);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            height: 300px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Ocultar barra de scroll en algunos navegadores para estética */
+        .carousel-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .carousel-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .carousel-container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Volver al inicio</a>
+
+        <h1>Ejemplo 4: Carrusel Horizontal</h1>
+        <p>CSS Grid no es solo para layouts estáticos. Con <code>grid-auto-flow: column</code> podemos crear carruseles
+            deslizables muy fácilmente.</p>
+
+        <div class="carousel-container">
+            <div class="carousel-item">Tarjeta 1</div>
+            <div class="carousel-item">Tarjeta 2</div>
+            <div class="carousel-item">Tarjeta 3</div>
+            <div class="carousel-item">Tarjeta 4</div>
+            <div class="carousel-item">Tarjeta 5</div>
+        </div>
+
+        <h3>Código CSS Clave:</h3>
+        <pre><code>
+.carousel-container {
+    display: grid;
+    /* Flujo en columnas (horizontal) */
+    grid-auto-flow: column;
+    
+    /* Tamaño de cada slide */
+    grid-auto-columns: 80%;
+    
+    gap: 20px;
+    overflow-x: auto;
+    
+    /* Efecto de "imán" al hacer scroll */
+    scroll-snap-type: x mandatory;
+}
+        </code></pre>
+    </div>
+</body>
+
+</html>

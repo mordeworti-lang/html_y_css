@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 2: Grid Areas</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .areas-grid {
+            display: grid;
+            /* Definimos el layout visualmente */
+            grid-template-areas:
+                "header header header"
+                "sidebar main main"
+                "footer footer footer";
+
+            /* Definimos el tamaño de las columnas y filas */
+            grid-template-columns: 200px 1fr 1fr;
+            grid-template-rows: 80px 300px 60px;
+
+            gap: 10px;
+        }
+
+        /* Asignamos cada item a su área correspondiente */
+        .header {
+            grid-area: header;
+            background-color: #e74c3c;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            background-color: #2ecc71;
+        }
+
+        .main {
+            grid-area: main;
+            background-color: #f1c40f;
+            color: #333;
+        }
+
+        .footer {
+            grid-area: footer;
+            background-color: #9b59b6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Volver al inicio</a>
+
+        <h1>Ejemplo 2: Grid Template Areas</h1>
+        <p>Este es el método más intuitivo para crear layouts completos. "Dibujamos" la estructura con texto.</p>
+
+        <div class="grid-container areas-grid">
+            <div class="grid-item header">Header</div>
+            <div class="grid-item sidebar">Sidebar</div>
+            <div class="grid-item main">Main Content</div>
+            <div class="grid-item footer">Footer</div>
+        </div>
+
+        <h3>Código CSS utilizado:</h3>
+        <pre><code>
+.areas-grid {
+    display: grid;
+    grid-template-areas: 
+        "header header header"
+        "sidebar main main"
+        "footer footer footer";
+    grid-template-columns: 200px 1fr 1fr;
+    grid-template-rows: 80px 300px 60px;
+    gap: 10px;
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main { grid-area: main; }
+.footer { grid-area: footer; }
+        </code></pre>
+    </div>
+</body>
+
+</html>

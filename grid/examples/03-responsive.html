@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo 3: Grid Responsive</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .responsive-grid {
+            display: grid;
+            /* 
+               MAGIA RESPONSIVE:
+               - repeat(auto-fit, ...): Crea tantas columnas como quepan.
+               - minmax(200px, 1fr): Cada columna debe medir al menos 200px, 
+                 pero si sobra espacio, se estira para ocuparlo (1fr).
+            */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Volver al inicio</a>
+
+        <h1>Ejemplo 3: Grid Responsive Automática</h1>
+        <p>Redimensiona la ventana del navegador. Verás cómo las tarjetas se reacomodan automáticamente sin necesidad de
+            usar <code>@media queries</code>.</p>
+
+        <div class="grid-container responsive-grid">
+            <div class="grid-item">Item 1</div>
+            <div class="grid-item">Item 2</div>
+            <div class="grid-item">Item 3</div>
+            <div class="grid-item">Item 4</div>
+            <div class="grid-item">Item 5</div>
+            <div class="grid-item">Item 6</div>
+            <div class="grid-item">Item 7</div>
+            <div class="grid-item">Item 8</div>
+        </div>
+
+        <h3>Código CSS utilizado:</h3>
+        <pre><code>
+.responsive-grid {
+    display: grid;
+    /* Crea columnas automáticas de mínimo 200px */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+        </code></pre>
+    </div>
+</body>
+
+</html>
