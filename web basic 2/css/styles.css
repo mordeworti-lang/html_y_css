@@ -1,0 +1,1433 @@
+/* =====================================================
+   RESET Y ESTILOS BASE
+   ===================================================== 
+   Estos estilos se aplican PRIMERO para resetear
+   los estilos por defecto del navegador
+*/
+
+* {
+    /* SELECTOR UNIVERSAL (*): Selecciona TODOS los elementos del HTML.
+       Esto incluye: <div>, <p>, <h1>, <button>, etc.
+       Se usa para aplicar estilos base a toda la página.
+    */
+    
+    margin: 0;
+    /* margin: 0: Elimina el margen EXTERNO de todos los elementos.
+       Los navegadores añaden márgenes por defecto que pueden causar espacios no deseados.
+       Ejemplo: <h1> tiene margen superior e inferior por defecto.
+       Con margin: 0, empezamos desde cero y controlamos NOSOTROS los espacios.
+    */
+    
+    padding: 0;
+    /* padding: 0: Elimina el relleno INTERNO de todos los elementos.
+       El padding es el espacio entre el contenido y el borde del elemento.
+       Ejemplo: <ul> tiene padding izquierdo por defecto.
+       Así controlamos nosotros cuánto padding queremos.
+    */
+    
+    box-sizing: border-box;
+    /* box-sizing: border-box: Cambia cómo se calcula el ancho/alto de los elementos.
+       
+       SIN box-sizing: border-box (por defecto):
+       - width: 300px significa: el CONTENIDO mide 300px
+       - Si agregas padding: 20px, el elemento ahora mide 340px total (300 + 20 + 20)
+       - Si agregas border: 5px, el elemento ahora mide 350px total
+       - Esto causa problemas: los elementos se salen de su contenedor
+       
+       CON box-sizing: border-box:
+       - width: 300px significa: el elemento COMPLETO mide 300px
+       - El padding y border se incluyen en esos 300px
+       - El contenido se ajusta automáticamente
+       - Mucho más predecible y fácil de trabajar
+       
+       Ejemplo práctico:
+       .caja {
+           width: 300px;
+           padding: 20px;
+           border: 5px solid black;
+       }
+       Sin border-box: Ancho total = 350px (se sale de su contenedor)
+       Con border-box: Ancho total = 300px (perfecto!)
+    */
+}
+
+/* =====================================================
+   VARIABLES CSS (Custom Properties)
+   ===================================================== 
+*/
+
+:root {
+    /* :root: Pseudo-clase que representa el elemento raíz del documento (<html>).
+       Las variables definidas aquí están disponibles en TODA la página.
+       Es como declarar constantes globales en programación.
+    */
+    
+    --color-primario: #A67DD9;
+    /* --nombre-variable: valor;
+       Las variables CSS empiezan con -- (dos guiones).
+       
+       ¿Para qué sirven?
+       - Reutilización: Defines el color una vez, lo usas mil veces
+       - Mantenimiento: Si quieres cambiar el color, lo cambias en UN solo lugar
+       - Consistencia: Todos los elementos usan exactamente el mismo color
+       
+       ¿Cómo se usan?
+       background-color: var(--color-primario);
+       
+       Ejemplo práctico:
+       Si decides cambiar el color primario de morado a azul,
+       solo cambias #A67DD9 a #3498db aquí, y TODO el sitio se actualiza.
+       Sin variables, tendrías que buscar y reemplazar en 50+ lugares.
+    */
+    
+    --color-secundario: #FFE797;
+    /* Color amarillo pastel para acentos y fondos */
+    
+    --color-acento: #9344cf;
+    /* Color morado más oscuro para énfasis */
+    
+    --color-fondo: #B7A3E3;
+    /* Color de fondo principal de la página */
+    
+    --color-texto: #2A1458;
+    /* Color oscuro para el texto (buena legibilidad) */
+    
+    --color-texto-claro: #FFEAD8;
+    /* Color claro para texto sobre fondos oscuros */
+    
+    --color-exito: #4CAF50;
+    /* Color verde para indicar éxito o elementos positivos */
+}
+
+/* =====================================================
+   ESTILOS DEL BODY (DOCUMENTO COMPLETO)
+   ===================================================== 
+*/
+
+body {
+    /* Selector: Aplica estilos al elemento <body> (toda la página visible) */
+    
+    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Define qué tipo de letra usar.
+       
+       Lista de fuentes (fallback):
+       1. Arial: El navegador intenta usar Arial primero
+       2. Helvetica: Si no tiene Arial, usa Helvetica
+       3. sans-serif: Si no tiene ninguna, usa cualquier fuente sin serifas
+       
+       ¿Qué son las serifas?
+       - Serif: Fuentes con "patitas" (Times New Roman) - más formales
+       - Sans-serif: Fuentes sin "patitas" (Arial) - más modernas y legibles en pantallas
+       
+       Arial es estándar porque:
+       - Está instalada en el 99% de los ordenadores
+       - Es muy legible en pantallas
+       - Funciona bien en cualquier tamaño
+    */
+    
+    background-color: var(--color-fondo);
+    /* background-color: Color de fondo del body.
+       var(--color-fondo): Usa la variable CSS definida arriba.
+       Esto pinta toda la página de color #B7A3E3 (morado claro).
+    */
+    
+    font-size: 16px;
+    /* font-size: Tamaño base del texto.
+       16px es el estándar recomendado porque:
+       - Es cómodo de leer en cualquier pantalla
+       - Es el tamaño por defecto de los navegadores
+       - Los textos más pequeños pueden ser difíciles de leer
+       
+       Tu código original usaba 14px (muy pequeño).
+    */
+    
+    margin: 0;
+    /* margin: 0: Elimina el margen del body.
+       Algunos navegadores añaden márgenes de 8px al body por defecto.
+       Esto causa espacios blancos no deseados en los bordes.
+    */
+    
+    line-height: 1.6;
+    /* line-height: Altura de la línea (espacio entre líneas de texto).
+       
+       1.6 significa: la altura de cada línea es 1.6 veces el tamaño de la fuente.
+       - Si font-size: 16px, entonces line-height será 25.6px (16 × 1.6)
+       
+       ¿Por qué 1.6?
+       - Mejora la legibilidad (más fácil de leer)
+       - El texto no está apretado ni muy separado
+       - Valores recomendados: 1.4 - 1.8
+       
+       Comparación visual:
+       line-height: 1.0 → Texto muy apretado (difícil de leer)
+       line-height: 1.6 → Texto cómodo (ideal)
+       line-height: 3.0 → Texto muy separado (raro)
+    */
+    
+    color: var(--color-texto);
+    /* color: Color del texto (no del fondo).
+       Aplica a todo el texto dentro del body.
+       Usa la variable --color-texto (#2A1458, morado oscuro).
+    */
+}
+
+/* =====================================================
+   TIPOGRAFÍA - TÍTULOS
+   ===================================================== 
+*/
+
+h1, h2, h3 {
+    /* Selector múltiple: Aplica los mismos estilos a h1, h2 y h3.
+       Separamos con comas para no repetir código.
+       Equivale a escribir:
+       h1 { margin-bottom: 1rem; }
+       h2 { margin-bottom: 1rem; }
+       h3 { margin-bottom: 1rem; }
+    */
+    
+    margin-bottom: 1rem;
+    /* margin-bottom: Espacio DEBAJO del elemento.
+       
+       1rem = 1 × tamaño de fuente raíz (16px por defecto) = 16px
+       
+       ¿Por qué rem en vez de px?
+       - rem es relativo al tamaño de fuente del usuario
+       - Si el usuario aumenta el texto (por problemas de visión), los márgenes también crecen
+       - px es fijo y no respeta las preferencias del usuario
+       - Mejor accesibilidad
+       
+       Esto crea espacio entre el título y el contenido siguiente.
+    */
+}
+
+h1 {
+    /* Estilos específicos solo para <h1> */
+    
+    font-size: 2.5rem;
+    /* 2.5rem = 2.5 × 16px = 40px
+       El título principal es grande y llamativo.
+       
+       ¿Por qué rem?
+       - Si el usuario tiene font-size: 20px en su navegador:
+         2.5rem = 2.5 × 20px = 50px (se adapta)
+       - Con 40px fijo, siempre sería 40px (no se adapta)
+    */
+    
+    color: var(--color-texto);
+    /* Color del texto del h1 */
+}
+
+h2 {
+    /* Estilos específicos solo para <h2> */
+    
+    color: var(--color-exito);
+    /* Color verde para los h2 */
+    
+    font-size: 2rem;
+    /* 2rem = 32px
+       Los h2 son más pequeños que los h1 (jerarquía visual).
+       h1 > h2 > h3 > h4 > h5 > h6
+    */
+}
+
+h3 {
+    /* Estilos específicos solo para <h3> */
+    
+    font-size: 1.5rem;
+    /* 1.5rem = 24px
+       Los h3 son más pequeños que los h2.
+    */
+    
+    color: var(--color-texto);
+    /* Color del texto del h3 */
+}
+
+/* =====================================================
+   HEADER PRINCIPAL
+   ===================================================== 
+*/
+
+.header-principal {
+    /* Selector de clase: Aplica a elementos con class="header-principal".
+       Las clases empiezan con un punto (.) en CSS.
+    */
+    
+    padding: 2rem 1rem;
+    /* padding: Relleno INTERNO (espacio entre el borde y el contenido).
+       
+       Sintaxis con 2 valores: padding: vertical horizontal;
+       - 2rem: arriba y abajo (32px)
+       - 1rem: izquierda y derecha (16px)
+       
+       También puedes escribir:
+       padding: arriba derecha abajo izquierda; (4 valores)
+       padding: vertical horizontal; (2 valores)
+       padding: todos-los-lados; (1 valor)
+       
+       Esto crea espacio dentro del header para que el contenido no toque los bordes.
+    */
+    
+    background: linear-gradient(135deg, var(--color-secundario) 0%, #ffd97d 100%);
+    /* background: Define el fondo del elemento.
+       
+       linear-gradient: Crea un degradado (gradiente) de colores.
+       
+       Sintaxis: linear-gradient(ángulo, color1 posición, color2 posición)
+       - 135deg: Ángulo del gradiente (de arriba-izquierda a abajo-derecha)
+         0deg = de abajo hacia arriba
+         90deg = de izquierda a derecha
+         135deg = diagonal
+         180deg = de arriba hacia abajo
+       
+       - var(--color-secundario) 0%: 
+         Empieza con color secundario (#FFE797) en la posición 0% (inicio)
+       
+       - #ffd97d 100%: 
+         Termina con este color en la posición 100% (final)
+       
+       Resultado: Un gradiente suave de amarillo claro a amarillo más oscuro.
+       Más moderno que un color plano.
+    */
+    
+    text-align: center;
+    /* text-align: Alineación horizontal del texto.
+       Valores posibles:
+       - left: Izquierda (por defecto)
+       - center: Centro
+       - right: Derecha
+       - justify: Justificado (como en libros)
+       
+       Centra el h1 y el párrafo dentro del header.
+    */
+    
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* box-shadow: Crea una sombra debajo del elemento.
+       Da sensación de profundidad (el header "flota" sobre la página).
+       
+       Sintaxis: box-shadow: x y blur spread color;
+       - 0: Desplazamiento horizontal (0 = centrada)
+       - 4px: Desplazamiento vertical (la sombra va hacia abajo)
+       - 6px: Difuminado (blur) - qué tan borrosa es la sombra
+       - rgba(0, 0, 0, 0.1): Color de la sombra
+       
+       ¿Qué es rgba?
+       rgba(rojo, verde, azul, transparencia)
+       - (0, 0, 0) = negro
+       - 0.1 = 10% de opacidad (muy transparente, sombra suave)
+       
+       Resultado: Sombra negra suave y difuminada debajo del header.
+    */
+}
+
+.subtitulo {
+    /* Clase para el párrafo de subtítulo */
+    
+    color: var(--color-texto);
+    /* Color del texto */
+    
+    font-size: 1.1rem;
+    /* 1.1rem = 17.6px
+       Ligeramente más grande que el texto normal (16px)
+    */
+    
+    margin-top: 0.5rem;
+    /* margin-top: Espacio ARRIBA del elemento.
+       0.5rem = 8px
+       Crea separación entre el h1 y el subtítulo.
+    */
+}
+
+/* =====================================================
+   NAVEGACIÓN
+   ===================================================== 
+*/
+
+.navegacion {
+    /* Estilos para el menú de navegación */
+    
+    background-color: var(--color-primario);
+    /* Color de fondo del menú */
+    
+    padding: 1rem;
+    /* 16px de padding en todos los lados */
+    
+    border-radius: 15px;
+    /* border-radius: Redondea las esquinas del elemento.
+       15px: Radio de las esquinas.
+       
+       Valores posibles:
+       - 0px: Esquinas cuadradas (por defecto)
+       - 5px: Ligeramente redondeadas
+       - 15px: Bastante redondeadas
+       - 50%: Círculo perfecto (si el elemento es cuadrado)
+       
+       También puedes controlar cada esquina:
+       border-radius: arriba-izq arriba-der abajo-der abajo-izq;
+    */
+    
+    width: 90%;
+    /* width: Ancho del elemento.
+       90%: El 90% del ancho de su contenedor padre.
+       Deja 10% de espacio (5% a cada lado).
+    */
+    
+    max-width: 800px;
+    /* max-width: Ancho máximo del elemento.
+       
+       ¿Por qué usar max-width?
+       Sin max-width: En pantallas grandes (monitores de 2000px), el menú mediría 1800px (90%)
+       Con max-width: 800px: En pantallas grandes, el menú nunca superará 800px
+       
+       Resultado:
+       - Pantalla pequeña (600px): menú = 540px (90%)
+       - Pantalla grande (2000px): menú = 800px (no crece más)
+       
+       Mejora la legibilidad: las líneas muy largas son difíciles de leer.
+    */
+    
+    margin: 1.5rem auto;
+    /* margin: Espacio EXTERNO alrededor del elemento.
+       
+       1.5rem auto:
+       - 1.5rem: Margen arriba y abajo (24px)
+       - auto: Margen izquierda y derecha automático
+       
+       ¿Qué hace "auto"?
+       Cuando un elemento tiene width definido, "margin: auto" lo CENTRA horizontalmente.
+       El navegador calcula automáticamente el margen para centrarlo.
+       
+       Ejemplo:
+       Contenedor: 1000px de ancho
+       Elemento: 800px de ancho
+       Espacio sobrante: 200px (1000 - 800)
+       margin: auto → 100px izquierda + 100px derecha = centrado perfecto
+    */
+    
+    display: flex;
+    /* display: flex: Activa Flexbox en este contenedor.
+       
+       ¡IMPORTANTE! Tu código original decía "display: flexbox" (INCORRECTO).
+       "flexbox" no existe como valor.
+       
+       ¿Qué es Flexbox?
+       - Sistema de layout moderno de CSS
+       - Facilita alinear y distribuir elementos
+       - Los elementos hijos se convierten en "flex items"
+       - Muy útil para menús, barras de navegación, layouts responsivos
+       
+       Sin flex:
+       Los enlaces se apilan verticalmente (comportamiento normal)
+       
+       Con flex:
+       Los enlaces se alinean horizontalmente en una fila
+    */
+    
+    justify-content: space-around;
+    /* justify-content: Alineación horizontal de los flex items.
+       
+       Valores posibles:
+       - flex-start: Al inicio (izquierda)
+       - flex-end: Al final (derecha)
+       - center: Centrados
+       - space-between: Espacio entre elementos (primero y último pegados a los bordes)
+       - space-around: Espacio alrededor de cada elemento (incluye bordes)
+       - space-evenly: Espacio igual entre todos los elementos
+       
+       space-around: Distribuye los enlaces con espacio igual alrededor de cada uno.
+       
+       Ejemplo visual con 3 elementos:
+       [ 🔵  🔵  🔵 ] → flex-start
+       [  🔵 🔵 🔵  ] → center
+       [🔵     🔵     🔵] → space-between
+       [ 🔵  🔵  🔵 ] → space-around
+    */
+    
+    gap: 1rem;
+    /* gap: Espacio entre los flex items.
+       1rem = 16px entre cada enlace.
+       
+       Es más moderno y limpio que usar margin en cada elemento.
+       Antes de "gap", había que hacer:
+       .nav-link { margin-right: 1rem; }
+       Y luego quitar el margen del último elemento.
+       
+       Con gap: Es automático y más fácil.
+    */
+    
+    text-align: center;
+    /* Centra el texto dentro de cada enlace */
+    
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    /* Sombra debajo del menú (profundidad) */
+}
+
+/* =====================================================
+   ENLACES DE NAVEGACIÓN
+   ===================================================== 
+*/
+
+.nav-link {
+    /* Estilos para cada enlace del menú */
+    
+    font-size: 1.1rem;
+    /* Texto ligeramente más grande (17.6px) */
+    
+    background-color: rgb(240, 199, 124);
+    /* background-color con rgb: rgb(rojo, verde, azul).
+       Cada valor va de 0 a 255.
+       (240, 199, 124) = color naranja/beige claro
+       
+       También puedes usar:
+       - Hexadecimal: #F0C77C
+       - Nombre: orange (solo colores básicos)
+       - HSL: hsl(45, 80%, 71%)
+    */
+    
+    color: rgb(72, 1, 253);
+    /* Color del texto: azul/morado intenso */
+    
+    text-align: center;
+    /* Texto centrado dentro del enlace */
+    
+    padding: 0.8rem 1.5rem;
+    /* Padding:
+       - 0.8rem: arriba y abajo (12.8px)
+       - 1.5rem: izquierda y derecha (24px)
+       Hace que el enlace sea más grande y fácil de clickear.
+    */
+    
+    border-radius: 20px;
+    /* Esquinas muy redondeadas (efecto "pill" o pastilla) */
+    
+    text-decoration: none;
+    /* text-decoration: Decoración del texto.
+       
+       Por defecto, los enlaces (<a>) tienen text-decoration: underline (subrayado).
+       none: Quita el subrayado.
+       
+       Otros valores:
+       - underline: Subrayado
+       - overline: Línea arriba
+       - line-through: Tachado
+    */
+    
+    transition: all 0.3s ease;
+    /* transition: Animación suave cuando cambian propiedades.
+       
+       Sintaxis: transition: propiedad duración timing-function;
+       - all: Anima TODAS las propiedades que cambien
+       - 0.3s: Duración de 0.3 segundos (300 milisegundos)
+       - ease: Timing function (empieza lento, rápido en el medio, termina lento)
+       
+       Otras timing functions:
+       - linear: Velocidad constante
+       - ease-in: Empieza lento, termina rápido
+       - ease-out: Empieza rápido, termina lento
+       - ease-in-out: Lento al inicio y al final
+       
+       ¿Para qué sirve?
+       Sin transition: El hover cambia instantáneamente (se ve brusco)
+       Con transition: El hover cambia suavemente (se ve profesional)
+    */
+    
+    font-weight: 600;
+    /* font-weight: Grosor de la fuente.
+       
+       Valores:
+       - 100-300: Delgada (thin, light)
+       - 400: Normal (por defecto)
+       - 600-700: Semi-negrita (semi-bold, bold)
+       - 800-900: Extra negrita (extra-bold, black)
+       - bold: Equivale a 700
+       - normal: Equivale a 400
+       
+       600 = texto semi-negrita (resalta sin ser muy grueso)
+    */
+    
+    display: inline-block;
+    /* display: inline-block: Comportamiento híbrido.
+       
+       Tipos de display:
+       - block: 
+         * Ocupa todo el ancho disponible
+         * Empieza en nueva línea
+         * Ejemplo: <div>, <p>, <h1>
+       
+       - inline: 
+         * Ocupa solo el espacio de su contenido
+         * NO respeta width, height, margin vertical
+         * Ejemplo: <span>, <a> (por defecto)
+       
+       - inline-block: 
+         * Se comporta como inline (en la misma línea)
+         * PERO respeta width, height, padding, margin
+         * Perfecto para botones y enlaces estilizados
+       
+       ¿Por qué inline-block aquí?
+       Porque queremos que el padding funcione correctamente.
+       Si fuera inline puro, el padding vertical no funcionaría bien.
+    */
+}
+
+.nav-link:hover {
+    /* :hover: Pseudo-clase que se activa cuando el cursor está sobre el elemento.
+       Estos estilos solo se aplican cuando pasas el mouse sobre el enlace.
+    */
+    
+    background: var(--color-texto);
+    /* Cambia el fondo a morado oscuro al hacer hover */
+    
+    color: var(--color-texto-claro);
+    /* Cambia el color del texto a claro al hacer hover */
+    
+    transform: translateY(-2px);
+    /* transform: Aplica transformaciones 2D o 3D al elemento.
+       
+       translateY(-2px): Mueve el elemento en el eje Y (vertical).
+       - Valor negativo: Mueve hacia ARRIBA
+       - Valor positivo: Mueve hacia ABAJO
+       
+       -2px: El enlace se eleva 2px cuando haces hover.
+       
+       Otras transformaciones:
+       - translateX(10px): Mueve horizontalmente
+       - scale(1.1): Agranda al 110%
+       - rotate(45deg): Rota 45 grados
+       - skew(10deg): Inclina
+       
+       Resultado: Efecto de "elevación" al pasar el mouse (feedback visual).
+    */
+    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Sombra más grande y oscura al hacer hover (refuerza el efecto de elevación) */
+}
+
+/* =====================================================
+   BOTÓN DE MENÚ MÓVIL
+   ===================================================== 
+*/
+
+.boton-menu-movil {
+    /* Botón "hamburguesa" que solo aparece en móviles */
+    
+    background: var(--color-secundario);
+    color: black;
+    border: 3px solid rgb(255, 255, 3);
+    /* border: Borde del elemento.
+       Sintaxis: border: grosor estilo color;
+       - 3px: Grosor del borde
+       - solid: Línea sólida (otros: dashed, dotted, double)
+       - rgb(255, 255, 3): Amarillo brillante
+    */
+    
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    
+    cursor: pointer;
+    /* cursor: Cambia el cursor del mouse al pasar sobre el elemento.
+       
+       Valores comunes:
+       - default: Flecha normal (por defecto)
+       - pointer: Manita (indica que es clickeable)
+       - text: Cursor de texto (I)
+       - move: Cursor de mover (4 flechas)
+       - not-allowed: Prohibido (círculo con línea)
+       
+       pointer: Indica al usuario que puede hacer clic aquí.
+    */
+    
+    display: none;
+    /* display: none: Oculta completamente el elemento.
+       
+       Diferencia entre visibilidad:
+       - display: none → El elemento no existe (no ocupa espacio)
+       - visibility: hidden → El elemento es invisible pero ocupa espacio
+       - opacity: 0 → El elemento es invisible pero ocupa espacio y es interactivo
+       
+       Por defecto está oculto. Se muestra solo en pantallas pequeñas (ver media query abajo).
+    */
+    
+    margin: 1rem auto;
+    /* Centra el botón horizontalmente */
+    
+    font-weight: bold;
+    /* bold = 700, hace el texto más grueso */
+    
+    transition: all 0.3s ease;
+    /* Animación suave para cambios (hover, etc.) */
+}
+
+.boton-menu-movil:hover {
+    background: #ffd97d;
+    /* Amarillo más oscuro al hacer hover */
+    
+    transform: scale(1.05);
+    /* scale(1.05): Agranda el elemento al 105%.
+       1.0 = tamaño normal
+       1.05 = 5% más grande
+       0.95 = 5% más pequeño
+       
+       Efecto sutil: el botón "crece" ligeramente al pasar el mouse.
+    */
+}
+
+/* =====================================================
+   SECCIÓN DE COLUMNAS
+   ===================================================== 
+*/
+
+.seccion-columnas {
+    /* Contenedor de las 3 columnas informativas */
+    
+    display: flex;
+    /* Activa Flexbox */
+    
+    flex-wrap: wrap;
+    /* flex-wrap: Controla si los flex items pueden saltar a una nueva línea.
+       
+       Valores:
+       - nowrap (por defecto): Todo en una línea (se comprime si no cabe)
+       - wrap: Los elementos saltan a la siguiente línea si no caben
+       - wrap-reverse: Lo mismo pero empezando desde abajo
+       
+       wrap es esencial para diseño responsive:
+       - Pantalla grande: 3 columnas en una fila
+       - Pantalla pequeña: 1 columna por fila (se apilan)
+    */
+    
+    gap: 1.5rem;
+    /* 24px de espacio entre columnas */
+    
+    justify-content: space-around;
+    /* Distribuye las columnas con espacio alrededor */
+    
+    margin: 2rem auto;
+    /* Centra la sección con margen arriba y abajo */
+    
+    padding: 0 1rem;
+    /* Padding horizontal (para que no toque los bordes en móvil) */
+    
+    max-width: 1200px;
+    /* Limita el ancho máximo en pantallas grandes */
+}
+
+/* =====================================================
+   COLUMNAS INDIVIDUALES
+   ===================================================== 
+*/
+
+.columna {
+    /* Cada tarjeta informativa (Experiencia, Logros, Filosofía) */
+    
+    background-color: var(--color-primario);
+    padding: 1.5rem;
+    border-radius: 15px;
+    color: var(--color-texto-claro);
+    
+    width: 100%;
+    /* 100% del ancho disponible (importante para responsive) */
+    
+    max-width: 350px;
+    /* ¡CAMBIO IMPORTANTE!
+       
+       Tu código original: width: 25%;
+       Problema: En móviles, 25% es muy estrecho (100px en pantalla de 400px)
+       
+       Solución: width: 100% + max-width: 350px
+       
+       Comportamiento:
+       - Pantalla pequeña (400px): columna = 100% del ancho (400px - padding)
+       - Pantalla mediana (600px): columna = 100% pero máximo 350px
+       - Pantalla grande (1200px): columna = 350px (no crece más)
+       
+       Resultado: Siempre se ve bien, sin importar el tamaño de pantalla.
+    */
+    
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    /* Sombra para dar profundidad */
+    
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Anima el transform Y la sombra al hacer hover.
+       Puedes especificar qué propiedades animar separadas por comas.
+    */
+}
+
+.columna:hover {
+    /* Efectos al pasar el mouse sobre la columna */
+    
+    transform: translateY(-5px);
+    /* Eleva la columna 5px hacia arriba */
+    
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    /* Sombra más grande y oscura (refuerza el efecto 3D de elevación) */
+}
+
+.columna h3 {
+    /* Selector descendente: Selecciona h3 que están DENTRO de .columna */
+    
+    color: var(--color-secundario);
+    /* Títulos en amarillo para contrastar con el fondo morado */
+    
+    margin-bottom: 1rem;
+    /* Espacio debajo del título */
+}
+
+/* =====================================================
+   SECCIÓN DE PLANES
+   ===================================================== 
+*/
+
+.seccion-planes {
+    /* Contenedor principal de todos los planes de precios */
+    
+    width: 95%;
+    /* Ocupa el 95% del ancho de la pantalla */
+    
+    max-width: 1400px;
+    /* No crece más allá de 1400px en pantallas muy grandes */
+    
+    margin: 3rem auto;
+    /* 3rem arriba y abajo, centrado horizontalmente */
+    
+    padding: 2rem 1rem;
+    /* Padding interno para respiración */
+}
+
+.titulo-seccion {
+    /* Título "Planes de Entrenamiento" */
+    
+    text-align: center;
+    /* Centra el título */
+    
+    margin-bottom: 2rem;
+    /* Espacio entre el título y las tarjetas */
+    
+    font-size: 2.5rem;
+    /* Tamaño grande (40px) */
+}
+
+/* =====================================================
+   CONTENEDOR DE TARJETAS (GRID)
+   ===================================================== 
+*/
+
+.contenedor-planes {
+    /* Grid que contiene las tarjetas de planes */
+    
+    background-color: var(--color-acento);
+    padding: 2rem;
+    border-radius: 15px;
+    
+    display: grid;
+    /* display: grid: Activa CSS Grid Layout.
+       
+       ¿Qué es Grid?
+       - Sistema de layout bidimensional (filas Y columnas)
+       - Perfecto para layouts complejos
+       - Flexbox es para una dimensión, Grid para dos
+       
+       Diferencia visual:
+       Flexbox: [ 🔵 🔵 🔵 ] → Una fila
+       Grid:    [ 🔵 🔵 ]
+                [ 🔵 🔵 ] → Filas y columnas
+    */
+    
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* ¡ESTA LÍNEA ES MÁGICA! 🎩✨
+       
+       grid-template-columns: Define cuántas columnas hay y su tamaño.
+       
+       Desglosemos cada parte:
+       
+       1. repeat(): Función que repite un patrón.
+          Sintaxis: repeat(cantidad, tamaño)
+       
+       2. auto-fit: Cantidad automática de columnas.
+          - Crea tantas columnas como quepan en el espacio disponible
+          - Si no caben 3, hace 2
+          - Si no caben 2, hace 1
+          - Es RESPONSIVE automático sin media queries
+       
+          Alternativa: auto-fill (similar pero diferente en espacios vacíos)
+       
+       3. minmax(280px, 1fr): Tamaño de cada columna.
+          - 280px: Ancho MÍNIMO de cada columna
+          - 1fr: Ancho MÁXIMO (1 fracción del espacio disponible)
+       
+       ¿Qué es "fr"?
+       - Significa "fracción"
+       - Divide el espacio disponible en partes iguales
+       - 1fr + 1fr + 1fr = 3 columnas de igual tamaño
+       
+       COMPORTAMIENTO MÁGICO:
+       Pantalla de 1200px:
+       - 280px × 4 = 1120px → Caben 4 columnas
+       - Cada una mide 300px (1200 ÷ 4)
+       
+       Pantalla de 900px:
+       - 280px × 3 = 840px → Caben 3 columnas
+       - Cada una mide 300px (900 ÷ 3)
+       
+       Pantalla de 500px:
+       - 280px × 2 = 560px → NO caben 2 columnas
+       - 280px × 1 = 280px → Cabe 1 columna
+       - Cada una mide 500px (100%)
+       
+       ¡Tu código original era MUCHO peor!:
+       grid-template-columns: repeat(3, 1fr);
+       Problema: SIEMPRE 3 columnas, incluso en móviles (se veía horrible)
+    */
+    
+    justify-items: center;
+    /* justify-items: Alineación horizontal de los items dentro de su celda.
+       center: Centra cada tarjeta en su espacio de grid.
+    */
+    
+    gap: 2rem;
+    /* 32px de espacio entre las tarjetas (filas y columnas) */
+    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* Sombra del contenedor completo */
+}
+
+/* =====================================================
+   TARJETAS DE PLAN (CARDS)
+   ===================================================== 
+*/
+
+.card-plan {
+    /* Cada tarjeta individual de plan */
+    
+    background-color: white;
+    /* Fondo blanco para contrastar con el contenedor morado */
+    
+    width: 100%;
+    /* Ocupa todo el ancho de su celda de grid */
+    
+    max-width: 350px;
+    /* Pero no crece más de 350px */
+    
+    border-radius: 15px;
+    text-align: center;
+    
+    padding: 2rem 1.5rem;
+    /* Padding:
+       - 2rem: arriba y abajo (32px)
+       - 1.5rem: izquierda y derecha (24px)
+    */
+    
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    position: relative;
+    /* position: relative: El elemento se posiciona normalmente,
+       PERO ahora puede contener elementos con position: absolute.
+       
+       Tipos de position:
+       - static (por defecto): Posición normal en el flujo del documento
+       - relative: Posición normal, pero puede moverse con top/left/etc
+       - absolute: Sacado del flujo, se posiciona respecto al padre más cercano con position
+       - fixed: Se queda fijo en la pantalla al hacer scroll
+       - sticky: Mezcla de relative y fixed
+       
+       ¿Por qué relative aquí?
+       Porque la etiqueta "MÁS POPULAR" usa position: absolute
+       y necesita un padre con position para posicionarse correctamente.
+       Sin esto, se posicionaría respecto al <body> (mal).
+    */
+}
+
+.card-plan:hover {
+    /* Efectos al pasar el mouse sobre la tarjeta */
+    
+    transform: translateY(-10px);
+    /* Eleva la tarjeta 10px (más que las columnas) */
+    
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+    /* Sombra mucho más grande (efecto dramático) */
+}
+
+/* =====================================================
+   TARJETA DESTACADA (PLAN MÁS POPULAR)
+   ===================================================== 
+*/
+
+.card-plan.destacado {
+    /* Selector de múltiples clases: .card-plan.destacado
+       Selecciona elementos que tienen AMBAS clases.
+       
+       NO es lo mismo que:
+       .card-plan .destacado → descendente (destacado DENTRO de card-plan)
+       .card-plan, .destacado → múltiple (card-plan O destacado)
+       
+       Esto solo afecta a tarjetas con:
+       class="card-plan destacado"
+    */
+    
+    border: 3px solid var(--color-secundario);
+    /* Borde amarillo grueso para destacar */
+    
+    transform: scale(1.05);
+    /* scale(1.05): Agranda la tarjeta al 105% de su tamaño normal.
+       Hace que se vea más grande que las otras tarjetas.
+       Llama la atención del usuario.
+    */
+}
+
+.etiqueta-popular {
+    /* Etiqueta "MÁS POPULAR" sobre la tarjeta */
+    
+    position: absolute;
+    /* position: absolute: Saca el elemento del flujo normal.
+       Se posiciona respecto a su padre más cercano con position (card-plan).
+       
+       Flujo normal: Los elementos se apilan uno tras otro.
+       Absolute: El elemento "flota" sobre los demás, no afecta su posición.
+    */
+    
+    top: -15px;
+    /* top: -15px: Posición desde ARRIBA.
+       -15px: Negativo significa FUERA del contenedor (hacia arriba).
+       Esto hace que la etiqueta sobresalga por arriba de la tarjeta.
+    */
+    
+    left: 50%;
+    /* left: 50%: Posición desde la IZQUIERDA.
+       50%: Se posiciona a la mitad del ancho de la tarjeta.
+       Pero ojo, solo el BORDE IZQUIERDO de la etiqueta está al 50%.
+       Necesitamos transform para centrarla completamente.
+    */
+    
+    transform: translateX(-50%);
+    /* translateX(-50%): Mueve el elemento hacia la izquierda.
+       -50%: 50% de su PROPIO ancho (no del padre).
+       
+       ¿Por qué esto centra perfectamente?
+       Sin transform:
+       [ Tarjeta: 300px de ancho ]
+       [        |🏷️Etiqueta ]
+              150px → Borde izquierdo de etiqueta
+       Resultado: Descentrada (solo el borde está al 50%)
+       
+       Con translateX(-50%):
+       [ Tarjeta: 300px de ancho ]
+       [    🏷️Etiqueta    ]
+          150px → Centro de etiqueta
+       Resultado: Perfectamente centrada
+       
+       Es el truco clásico de centrado horizontal con position absolute.
+    */
+    
+    background: var(--color-secundario);
+    color: var(--color-texto);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    /* 0.8rem = 12.8px (más pequeño que el texto normal) */
+    
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-plan h3 {
+    /* Título del plan dentro de cada tarjeta */
+    color: var(--color-primario);
+    margin-bottom: 1rem;
+}
+
+/* =====================================================
+   PRECIO
+   ===================================================== 
+*/
+
+.precio {
+    /* Número del precio ($500, $800, etc.) */
+    
+    font-size: 3rem;
+    /* 3rem = 48px - MUY grande para llamar la atención */
+    
+    font-weight: bold;
+    color: var(--color-acento);
+    margin: 1rem 0;
+}
+
+.precio span {
+    /* Selector descendente: SPAN dentro de .precio
+       Afecta al "/mes" dentro del precio
+    */
+    
+    font-size: 1rem;
+    /* 1rem = 16px - Mucho más pequeño que el precio principal */
+    
+    color: #666;
+    /* Color gris (#666 = rgb(102, 102, 102)) */
+}
+
+.descripcion {
+    /* Texto descriptivo del plan */
+    color: #555;
+    /* Gris un poco más oscuro que #666 */
+    margin: 1rem 0;
+    line-height: 1.6;
+}
+
+/* =====================================================
+   LISTA DE BENEFICIOS
+   ===================================================== 
+*/
+
+.lista-beneficios {
+    /* <ul> con los beneficios del plan */
+    
+    list-style: none;
+    /* list-style: Estilo de las viñetas de la lista.
+       
+       Valores:
+       - disc: Círculo relleno (por defecto para <ul>)
+       - circle: Círculo vacío
+       - square: Cuadrado
+       - decimal: Números (por defecto para <ol>)
+       - none: Sin viñetas
+       
+       none: Quitamos las viñetas porque usamos ✓ en el texto.
+    */
+    
+    text-align: left;
+    /* Alinea el texto a la izquierda (el centro se veía raro para listas) */
+    
+    padding: 1rem 0;
+    /* Padding arriba y abajo, 0 en los lados */
+}
+
+.lista-beneficios li {
+    /* Cada item de la lista */
+    padding: 0.5rem 0;
+    /* Espaciado entre items */
+    color: #333;
+    /* Color gris oscuro casi negro */
+}
+
+/* =====================================================
+   LÍNEA SEPARADORA
+   ===================================================== 
+*/
+
+hr {
+    /* Línea horizontal que separa secciones */
+    
+    border: none;
+    /* Quita el borde por defecto (se veía feo y diferente en cada navegador) */
+    
+    border-top: 2px solid #e0e0e0;
+    /* border-top: Crea un borde solo ARRIBA.
+       2px: Grosor
+       solid: Estilo de línea
+       #e0e0e0: Gris muy claro
+       
+       Resultado: Línea horizontal limpia y consistente.
+    */
+    
+    margin: 1.5rem 0;
+    /* Espacio arriba y abajo de la línea */
+}
+
+/* =====================================================
+   BOTÓN DE CONTRATAR
+   ===================================================== 
+*/
+
+.boton-precio {
+    /* Botón "Contratar Ahora" */
+    
+    display: inline-block;
+    /* inline-block para que funcione el padding correctamente */
+    
+    background: var(--color-primario);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    /* Muy redondeado (efecto "pill") */
+    
+    text-decoration: none;
+    /* Quita el subrayado del enlace */
+    
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.boton-precio:hover {
+    /* Efectos al pasar el mouse */
+    
+    background: var(--color-texto);
+    /* Cambia a morado oscuro */
+    
+    transform: scale(1.05);
+    /* Crece 5% */
+    
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    /* Sombra más grande y oscura */
+}
+
+/* =====================================================
+   MEDIA QUERIES - DISEÑO RESPONSIVE
+   ===================================================== 
+   Las media queries permiten aplicar estilos solo
+   cuando se cumple una condición (tamaño de pantalla)
+*/
+
+/* =====================================================
+   TABLETS (Pantallas medianas)
+   ===================================================== 
+*/
+
+@media (max-width: 768px) {
+    /* @media: Regla especial que aplica estilos solo si se cumple una condición.
+       
+       (max-width: 768px): Condición
+       - Se activa cuando el ancho de la pantalla es 768px o MENOR
+       - 768px es el punto de quiebre común para tablets
+       
+       Rangos típicos:
+       - Móviles: 0px - 600px
+       - Tablets: 601px - 768px
+       - Tablets grandes: 769px - 1024px
+       - Desktop: 1025px en adelante
+       
+       Todo el CSS dentro de este bloque SOLO se aplica en pantallas ≤ 768px.
+    */
+    
+    .navegacion {
+        /* En tablets, ajustamos el menú */
+        
+        width: 95%;
+        /* Más ancho (ocupa más espacio) */
+        
+        flex-direction: column;
+        /* flex-direction: Dirección del eje principal de flexbox.
+           
+           Valores:
+           - row (por defecto): Horizontal (izquierda a derecha) → → →
+           - column: Vertical (arriba a abajo) ↓ ↓ ↓
+           - row-reverse: Horizontal invertido ← ← ←
+           - column-reverse: Vertical invertido ↑ ↑ ↑
+           
+           column: Apila los enlaces verticalmente en vez de horizontalmente.
+           Mejor para pantallas estrechas.
+        */
+        
+        gap: 0.5rem;
+        /* Reduce el espacio entre enlaces */
+    }
+    
+    .nav-link {
+        width: 100%;
+        /* Cada enlace ocupa todo el ancho del nav */
+    }
+    
+    h1 {
+        font-size: 2rem;
+        /* Reduce el h1 de 2.5rem (40px) a 2rem (32px) */
+    }
+    
+    .contenedor-planes {
+        grid-template-columns: 1fr;
+        /* Fuerza una sola columna en tablets.
+           1fr: Una fracción del ancho disponible = 100%
+           
+           Sobrescribe el auto-fit del desktop.
+        */
+    }
+}
+
+/* =====================================================
+   MÓVILES (Pantallas pequeñas)
+   ===================================================== 
+*/
+
+@media (max-width: 600px) {
+    /* Se activa cuando el ancho ≤ 600px (smartphones) */
+    
+    .columna {
+        width: 100%;
+        /* ¡CORRECCIÓN DE TU ERROR!
+           Tu código: width: 100%s; (con "s" al final)
+           Esto causaba un error de sintaxis y no funcionaba.
+           
+           100%: La columna ocupa todo el ancho en móviles.
+        */
+    }
+
+    /* =====================================================
+       MENÚ MÓVIL CON BOTÓN HAMBURGUESA
+       ===================================================== 
+    */
+    
+    .boton-menu-movil {
+        display: block;
+        /* Muestra el botón (estaba oculto con display: none) */
+        
+        margin: 1rem auto;
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .navegacion {
+        display: none;
+        /* Oculta la navegación por defecto en móviles */
+        
+        width: 90%;
+        flex-direction: column;
+    }
+
+    .navegacion.activo {
+        /* Selector de múltiples clases: navegacion CON clase activo
+           Solo cuando el JavaScript agrega la clase "activo"
+        */
+        
+        display: flex;
+        /* Muestra el menú cuando está activo */
+        
+        animation: slideDown 0.3s ease;
+        /* animation: Aplica una animación al elemento.
+           
+           Sintaxis: animation: nombre duración timing-function;
+           - slideDown: Nombre de la animación (definida abajo)
+           - 0.3s: Duración de 300 milisegundos
+           - ease: Timing function (aceleración suave)
+           
+           Esto hace que el menú "se deslice hacia abajo" al aparecer.
+        */
+    }
+
+    @keyframes slideDown {
+        /* @keyframes: Define una animación personalizada.
+           slideDown: Nombre de la animación
+           
+           Las animaciones tienen fotogramas (frames):
+           - from: Estado inicial (0%)
+           - to: Estado final (100%)
+           - 0%, 25%, 50%, 100%: Puedes definir puntos intermedios
+        */
+        
+        from {
+            /* Estado inicial de la animación */
+            
+            opacity: 0;
+            /* opacity: Transparencia del elemento.
+               0 = Completamente transparente (invisible)
+               1 = Completamente opaco (visible)
+               0.5 = 50% transparente
+               
+               Empieza invisible.
+            */
+            
+            transform: translateY(-20px);
+            /* Empieza 20px más arriba */
+        }
+        
+        to {
+            /* Estado final de la animación */
+            
+            opacity: 1;
+            /* Termina completamente visible */
+            
+            transform: translateY(0);
+            /* Termina en su posición normal (0px de desplazamiento) */
+        }
+        
+        /* Resultado de la animación:
+           El menú aparece gradualmente (de invisible a visible)
+           mientras se desliza hacia abajo (de -20px a 0px).
+           Todo en 0.3 segundos con aceleración suave.
+        */
+    }
+
+    /* =====================================================
+       AJUSTES DE TIPOGRAFÍA PARA MÓVILES
+       ===================================================== 
+    */
+    
+    body {
+        font-size: 14px;
+        /* ¡CORRECCIÓN IMPORTANTE!
+           
+           Tu código original: font-size: 50%;
+           Problema: 50% de 16px = 8px (¡ILEGIBLE!)
+           El texto se volvía minúsculo e imposible de leer.
+           
+           Solución: 14px (un poco más pequeño pero legible)
+           
+           Regla de oro: NUNCA uses tamaños menores a 12px para texto de lectura.
+        */
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        /* 1.8rem con base de 14px = 25.2px */
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        /* 1.5rem = 21px */
+    }
+
+    h3 {
+        font-size: 1.2rem;
+        /* 1.2rem = 16.8px */
+    }
+
+    .header-principal {
+        padding: 1.5rem 1rem;
+        /* Reduce el padding en móviles (menos espacio) */
+    }
+
+    .precio {
+        font-size: 2.5rem;
+        /* Reduce el precio de 3rem a 2.5rem */
+    }
+
+    .card-plan {
+        padding: 1.5rem 1rem;
+        /* Menos padding en las tarjetas (ahorra espacio) */
+    }
+}
+
+/* =====================================================
+   PANTALLAS MUY PEQUEÑAS (< 400px)
+   ===================================================== 
+*/
+
+@media (max-width: 400px) {
+    /* Dispositivos muy pequeños (iPhone SE, etc.) */
+    
+    body {
+        font-size: 13px;
+        /* Aún más pequeño pero todavía legible */
+    }
+    
+    .boton-precio {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+        /* Botones más compactos */
+    }
+}
+
+/* =====================================================
+   FIN DEL CSS
+   ===================================================== 
+   
+   RESUMEN DE CONCEPTOS CLAVE:
+   
+   1. Box Model: margin → border → padding → contenido
+   2. Flexbox: Layout unidimensional (filas o columnas)
+   3. Grid: Layout bidimensional (filas Y columnas)
+   4. Position: static, relative, absolute, fixed, sticky
+   5. Unidades: px (fijo), % (relativo al padre), rem (relativo a raíz), em (relativo al elemento)
+   6. Pseudo-clases: :hover, :active, :focus, etc.
+   7. Selectores: .clase, #id, elemento, .clase1.clase2, .padre .hijo
+   8. Transitions: Animaciones automáticas cuando cambia una propiedad
+   9. Animations: Animaciones personalizadas con @keyframes
+   10. Media Queries: Estilos condicionales según tamaño de pantalla
+*/

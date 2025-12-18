@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HoopStyle - Tu Tienda de Basketball</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- HEADER CON FLEXBOX -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">🏀 HoopStyle</div>
+            <nav>
+                <ul class="nav">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#categorias">Categorías</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#ofertas">Ofertas</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION CON GRID -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Eleva Tu Juego al Siguiente Nivel</h1>
+            <p>Descubre la mejor colección de equipamiento de basketball. Desde zapatillas profesionales hasta accesorios únicos.</p>
+            <a href="#productos" class="btn">
+                <span>Ver Productos</span>
+                <span>🏀</span>
+            </a>
+        </div>
+        <div class="hero-image">
+            🏀
+        </div>
+    </section>
+
+    <!-- CATEGORÍAS CON GRID -->
+    <section class="categories" id="categorias">
+        <h2 class="section-title">Nuestras Categorías</h2>
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-icon">👟</div>
+                <h3>Zapatillas</h3>
+                <p>Las mejores marcas del mercado</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">👕</div>
+                <h3>Ropa</h3>
+                <p>Camisetas, shorts y más</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🏀</div>
+                <h3>Balones</h3>
+                <p>Balones oficiales y entrenamiento</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🎒</div>
+                <h3>Accesorios</h3>
+                <p>Mochilas, gorras y más</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTOS CON GRID -->
+    <section class="products" id="productos">
+        <h2 class="section-title">Productos Destacados</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">👟</div>
+                <div class="product-info">
+                    <h3 class="product-title">Air Hoop Pro</h3>
+                    <p class="product-description">Zapatillas de alto rendimiento con tecnología de amortiguación</p>
+                    <span class="product-price">$129.99</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-small btn-cart">Añadir 🛒</button>
+                    <button class="btn-small btn-fav">❤️</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">👕</div>
+                <div class="product-info">
+                    <h3 class="product-title">Jersey Classic</h3>
+                    <p class="product-description">Camiseta transpirable de diseño clásico</p>
+                    <span class="product-price">$45.99</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-small btn-cart">Añadir 🛒</button>
+                    <button class="btn-small btn-fav">❤️</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">🏀</div>
+                <div class="product-info">
+                    <h3 class="product-title">BasketBall Elite</h3>
+                    <p class="product-description">Balón oficial para competición profesional</p>
+                    <span class="product-price">$89.99</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-small btn-cart">Añadir 🛒</button>
+                    <button class="btn-small btn-fav">❤️</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">🩳</div>
+                <div class="product-info">
+                    <h3 class="product-title">Short Performance</h3>
+                    <p class="product-description">Short ligero con tecnología de secado rápido</p>
+                    <span class="product-price">$39.99</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-small btn-cart">Añadir 🛒</button>
+                    <button class="btn-small btn-fav">❤️</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">🎒</div>
+                <div class="product-info">
+                    <h3 class="product-title">Mochila Sport Pro</h3>
+                    <p class="product-description">Mochila espaciosa con compartimento especial para balón</p>
+                    <span class="product-price">$54.99</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-small btn-cart">Añadir 🛒</button>
+                    <button class="btn-small btn-fav">❤️</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">🧢</div>
+                <div class="product-info">
+                    <h3 class="product-title">Gorra Urban Style</h3>
+                    <p class="product-description">Gorra ajustable con diseño urbano</p>
+                    <span class="product-price">$24.99</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn-small btn-cart">Añadir 🛒</button>
+                    <button class="btn-small btn-fav">❤️</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFERTAS CON GRID ESPECIAL -->
+    <section class="offers" id="ofertas">
+        <h2 class="section-title">Ofertas Especiales</h2>
+        <div class="offers-grid">
+            <div class="offer-card offer-main">
+                <div>
+                    <span class="offer-badge">50% OFF</span>
+                    <h3 style="font-size: 2rem; margin: 1rem 0;">Mega Oferta de Temporada</h3>
+                    <p style="font-size: 1.2rem;">Aprovecha descuentos increíbles en toda la colección de invierno</p>
+                </div>
+                <a href="#" class="btn">Ver Ofertas</a>
+            </div>
+
+            <div class="offer-card offer-1">
+                <div>
+                    <span class="offer-badge">30% OFF</span>
+                    <h3>Zapatillas Premium</h3>
+                    <p>Las mejores marcas</p>
+                </div>
+                <a href="#" class="btn">Comprar</a>
+            </div>
+
+            <div class="offer-card offer-2">
+                <div>
+                    <span class="offer-badge">25% OFF</span>
+                    <h3>Ropa Deportiva</h3>
+                    <p>Toda la colección</p>
+                </div>
+                <a href="#" class="btn">Comprar</a>
+            </div>
+
+            <div class="offer-card offer-3">
+                <div>
+                    <span class="offer-badge">40% OFF</span>
+                    <h3>Accesorios</h3>
+                    <p>Mochilas y más</p>
+                </div>
+                <a href="#" class="btn">Comprar</a>
+            </div>
+
+            <div class="offer-card offer-4">
+                <div>
+                    <span class="offer-badge">2x1</span>
+                    <h3>Balones</h3>
+                    <p>Lleva 2 paga 1</p>
+                </div>
+                <a href="#" class="btn">Comprar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS CON GRID -->
+    <section class="testimonials">
+        <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-avatar">😊</div>
+                <div class="testimonial-name">Carlos M.</div>
+                <div class="testimonial-text">"Excelente calidad y envío rápido. Las zapatillas son increíbles y muy cómodas. ¡Totalmente recomendado!"</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-avatar">🤩</div>
+                <div class="testimonial-name">María L.</div>
+                <div class="testimonial-text">"La mejor tienda de basketball online. Precios competitivos y productos originales. Volveré a comprar seguro."</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-avatar">😎</div>
+                <div class="testimonial-name">Juan P.</div>
+                <div class="testimonial-text">"Atención al cliente de 10. Me ayudaron a elegir las zapatillas perfectas para mi tipo de juego."</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CON GRID Y FLEXBOX -->
+    <footer class="footer" id="contacto">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>Sobre HoopStyle</h3>
+                <p>Tu tienda especializada en equipamiento de basketball. Calidad, pasión y estilo en cada producto.</p>
+                <div class="social-icons">
+                    <div class="social-icon">📘</div>
+                    <div class="social-icon">📷</div>
+                    <div class="social-icon">🐦</div>
+                    <div class="social-icon">▶️</div>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <div class="footer-links">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#categorias">Categorías</a>
+                    <a href="#productos">Productos</a>
+                    <a href="#ofertas">Ofertas</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Ayuda</h3>
+                <div class="footer-links">
+                    <a href="#">Preguntas Frecuentes</a>
+                    <a href="#">Envíos</a>
+                    <a href="#">Devoluciones</a>
+                    <a href="#">Contacto</a>
+                </div>

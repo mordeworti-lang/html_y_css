@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- 
+  <html> es la raíz del documento
+  lang="en" indica que el idioma principal es inglés
+  (mejora SEO y accesibilidad)
+-->
+<head>
+    <!-- 
+      <head> contiene metadatos (información SOBRE la página)
+      No se muestra visualmente, pero es crucial para el navegador
+    -->
+    
+    <meta charset="UTF-8">
+    <!-- 
+      Define la codificación de caracteres UTF-8
+      Permite usar tildes, ñ, emojis, etc.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 
+      CRÍTICO PARA RESPONSIVE DESIGN
+      - width=device-width: el ancho de la página = ancho del dispositivo
+      - initial-scale=1.0: zoom inicial al 100%
+      Sin esto, las páginas se verían mal en móviles
+    -->
+    
+    <title>Blogr</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="images">
+</head>
+<body>
+     <!-- 
+      <body> contiene TODO el contenido visible
+      Es lo que ves en la ventana del navegador
+    -->
+
+<!-- ========================================
+        HEADER - SECCIÓN SUPERIOR
+        ======================================== -->
+    <header class="header">
+        <!-- 
+        <header> es una etiqueta semántica para la cabecera
+        class="header" le asigna una clase para aplicar estilos CSS
+    -->
+
+    <!-- ========================================
+         MENÚ DE NAVEGACIÓN
+        ======================================== -->
+        <div class="menu">
+            <img src="images/logo.svg" alt="Blogr Logo">
+                 <!-- 
+              Logo de la marca una imagen:
+            -->
+            <button class="menu-btn" id="menuBtn">☰</button>
+                <!-- 
+              BOTÓN HAMBURGUESA (solo visible en móvil)
+              - class="menu-btn": para estilos CSS
+              - id="menuBtn": para seleccionarlo con JavaScript
+              - aria-label="Toggle menu": accesibilidad para lectores de pantalla
+              - ☰: símbolo de menú hamburguesa (3 líneas)
+            -->
+            <nav class="nav" id="navMenu">
+            <!-- 
+                <nav> es la etiqueta semántica para navegación
+                - class="nav": para estilos CSS
+                - id="navMenu": para manipularlo con JavaScript
+                Este menú se muestra/oculta con JS en móvil
+            -->
+                <ul class="n">
+                    <li><a href="#product">Product</a></li>
+                    <li><a href="#company">Company</a></li>
+                    <li><a href="#connect">Connect</a></li>
+                </ul>
+            <!-- 
+                <li> = List Item (elemento de lista)
+                <a> = Anchor (enlace)
+                href="#product": enlace interno a sección con id="product"
+                En un proyecto real: href="product.html"
+            -->
+                <ul class="registro">
+                    <li><a href="#login">Login</a></li>
+                    <li class="sign-up"><a href="#signup">Sign up</a></li>
+                </ul>
+            </nav>
+        </div>    
+        <div class="texto-principal">
+            <h1>A modern publishing platform</h1>
+            <p>Grow your audicenceand build your online brand</p>
+            <!-- 
+                <p> = Paragraph (párrafo)
+                Texto descriptivo que explica el valor de la plataforma
+            -->
+        </div>
+        <div class="plan">
+        <!-- ========================================
+            BOTONES DE ACCIÓN (CTA)
+            ======================================== -->
+            <ul>
+                <li class="free">
+                <a href="#start">Start for free</a>
+                <!-- 
+                    CTA primario (Call To Action)
+                    Botón más importante - acción principal
+                -->
+                </li>
+                <li class="more">
+                <a href="#learn">Learn More</a>
+                <!-- 
+                    CTA secundario
+                    Para usuarios que quieren más información
+                -->
+                </li>
+            </ul>
+        </div>
+    </header> 
+            
+    <!-- ========================================
+         MAIN - CONTENIDO PRINCIPAL
+         ======================================== -->
+    <main>
+        <!-- 
+          <main> es la etiqueta semántica para el contenido principal
+          SOLO debe haber UNA por página
+        -->
+        <section class="section">
+            <!-- 
+              <section> agrupa contenido relacionado
+              Piensa en secciones de un periódico
+            -->
+            <div class="articulos">
+                <!-- Contenedor de todos los artículos -->
+
+                <!-- ========================================
+                     ARTÍCULO 1
+                     ======================================== -->
+                <article class="article primero">
+                    <img src="images/illustration-editor-mobile.svg" class="img" alt="es la imagen de una tablet usando nuestra pagina">
+                    <div>
+                        <h2>Designed for the future</h2>
+                        <div>
+                            <h3>introducing an extensible editor</h3>
+                            <p>Blogr features an exceedingly intuitive 
+                                interface which lets you focus on one thing: 
+                                creating content. The editor supports management 
+                                of multiple blogs and allows easy manipulation 
+                                of embeds such as images, videos, and Markdown.
+                                    Extensibility with plugins and themes provide endless
+                                    possibilities.</p>
+                        </div>
+                        <div>
+                        <h3>Robust content management</h3>
+                        <p>Flexible content management enables users to
+                            easily move through posts. Increase the usability 
+                            of your blog by adding customized categories, 
+                            sections, format, or flow. With this functionality, 
+                            you're in full control.</p>
+                        </div>
+                        <!-- Párrafo descriptivo -->
+                     </div>
+                </article>
+                
+                <!-- ========================================
+                     ARTÍCULO 2
+                     ======================================== -->
+                
+                <article class="article bakgraun">
+                    <img src="images/illustration-phones.svg" class="img" alt="es la imagen de un celular usando nuestra pagina">
+                    <div>
+                        <h2>State of the Art Infrastructure</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisiccing elit. 
+                            Atque illo possimus dolores odio necessitatibus et ipsum 
+                            numquam explicabo officia. Aliquid ullam minima quae 
+                            praesentium dolor repudiandae quibusdam quidem 
+                            modi dolorum! </p> 
+                    </div>
+                </article>
+                
+                <article class="article">
+                    <img src="images/illustration-laptop-mobile.svg" class="img" alt="es la imagen de una lapthop usando nuestra pagina">
+                    <div>
+                        <h2>Designed for the future</h2>
+                        <div>
+                            <h3>introducing an extensible editor</h3>
+                            <p>Blogr is a free and open source 
+                                application backed by a large 
+                                community of helpful developers. 
+                                It supports features such as code 
+                                syntax highlighting, RSS feeds, 
+                                social media integration, third-party 
+                                commenting tools, and works seamlessly 
+                                with Google Analytics.</p>
+                        </div>
+                        <div>
+                        <h3>Robust content management</h3>
+                        <p>Batteries included. We built a simple and 
+                            straightforward CLI tool that makes customization 
+                            and deployment a breeze, but also capable of 
+                            producing even the most complicated sites.</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+      <!-- ========================================
+         FOOTER - PIE DE PÁGINA
+         ======================================== -->
+    <footer class="footer">
+        <div>
+        <img src="images/logo.svg" alt="Blogr Logo">
+        </div>
+        <div>
+            <h2>product</h2>
+            <p>Overview</p>
+            <p>Pricing</p>
+            <p>Marketplace</p>
+            <p>Features</p>
+            <p>integration</p>
+        </div>
+
+        <div>
+            <h2>Company</h2>
+            <p>About</p>
+            <p>Team</p>
+            <p>blog</p>
+            <p>Careers</p>
+        </div>
+        <div>
+            <h2>Connect</h2>
+            <p>Contact</p>
+            <p>Newsletter</p>
+            <p>Linkedin</p>
+        </div>
+    </footer>
+        <script src="js/menu.js"></script>
+</body>
+</html> 

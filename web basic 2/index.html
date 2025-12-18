@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<!-- =====================================================
+     DECLARACIÓN DOCTYPE
+     ===================================================== 
+     Le dice al navegador que este documento usa HTML5.
+     Debe ir siempre en la primera línea del archivo.
+     Sin esto, el navegador entra en "modo quirks" (modo de compatibilidad antiguo)
+-->
+
+<html lang="es">
+<!-- =====================================================
+     ETIQUETA HTML PRINCIPAL
+     ===================================================== 
+     lang="es": Define el idioma del documento como español.
+     Esto ayuda a:
+     - Lectores de pantalla (accesibilidad)
+     - Motores de búsqueda (SEO)
+     - Traductores automáticos del navegador
+-->
+
+<head>
+    <!-- =====================================================
+         HEAD: Metadatos del documento
+         ===================================================== 
+         Aquí va toda la información que el navegador necesita
+         pero que NO se muestra directamente en la página.
+    -->
+
+    <meta charset="UTF-8">
+    <!-- charset="UTF-8": Define la codificación de caracteres.
+         UTF-8 permite usar:
+         - Letras con tildes (á, é, í, ó, ú)
+         - Ñ y símbolos especiales (€, ©, ®)
+         - Emojis 😊
+         Sin esto, estos caracteres se verían mal (���)
+    -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- viewport: Controla cómo se ve la página en dispositivos móviles.
+         - width=device-width: El ancho de la página = ancho de la pantalla del dispositivo
+         - initial-scale=1.0: Zoom inicial al 100% (sin hacer zoom)
+         Sin esto, las páginas se ven diminutas en móviles
+    -->
+
+    <title>El Mejor Basketbolista - Portafolio</title>
+    <!-- TITLE: El texto que aparece en:
+         - La pestaña del navegador
+         - Los favoritos
+         - Los resultados de búsqueda de Google
+         Debe ser descriptivo y único para cada página
+    -->
+
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- LINK: Enlaza la hoja de estilos CSS externa.
+         - rel="stylesheet": Define que es una hoja de estilos
+         - href="css/styles.css": Ruta al archivo CSS
+         Esto separa el diseño (CSS) del contenido (HTML)
+    -->
+</head>
+
+<body>
+    <!-- =====================================================
+         BODY: Todo el contenido visible de la página
+         ===================================================== 
+    -->
+
+    <!-- =====================================================
+         HEADER PRINCIPAL
+         ===================================================== 
+         Encabezado de la página con título y subtítulo
+    -->
+    <header class="header-principal">
+        <!-- HEADER: Etiqueta semántica para el encabezado principal.
+             class="header-principal": Identificador CSS para aplicar estilos.
+             Las clases son reutilizables (puedes tener varios elementos con la misma clase)
+        -->
+
+        <h1>El Mejor Basketbolista</h1>
+        <!-- H1: Título principal de la página.
+             Reglas importantes:
+             - Solo debe haber UN h1 por página
+             - Es el título más importante (jerarquía)
+             - Google lo usa para entender de qué trata la página
+        -->
+
+        <p class="subtitulo">Bienvenido a mi portafolio profesional</p>
+        <!-- P: Párrafo de texto.
+             class="subtitulo": Le asignamos una clase para darle estilos específicos.
+             Es un subtítulo descriptivo que complementa el H1
+        -->
+    </header>
+
+    <!-- =====================================================
+         BOTÓN DE MENÚ MÓVIL
+         ===================================================== 
+         Este botón solo se muestra en pantallas pequeñas (móviles).
+         Al hacer clic, abre/cierra el menú de navegación.
+    -->
+    <button class="boton-menu-movil" aria-label="Abrir menú de navegación" id="btnMenu">
+        <!-- BUTTON: Botón interactivo que ejecuta una acción.
+             
+             class="boton-menu-movil": Clase CSS para estilos.
+             
+             aria-label="Abrir menú de navegación": 
+             - Descripción para lectores de pantalla (personas ciegas/con baja visión)
+             - Los lectores de pantalla leen este texto en voz alta
+             - Mejora la accesibilidad
+             
+             id="btnMenu": 
+             - Identificador único (solo un elemento puede tener este ID)
+             - Lo usamos en JavaScript para capturar el click
+             - Los IDs son únicos, las clases son reutilizables
+        -->
+        Menú ☰
+        <!-- Texto visible del botón.
+             ☰ es el símbolo de "hamburguesa" (tres líneas)
+        -->
+    </button>
+
+    <!-- =====================================================
+         NAVEGACIÓN PRINCIPAL
+         ===================================================== 
+         Menú de navegación con enlaces a diferentes secciones
+    -->
+    <nav class="navegacion" id="navegacion">
+        <!-- NAV: Etiqueta semántica para secciones de navegación.
+             Le dice al navegador y a los motores de búsqueda:
+             "Aquí hay un menú de navegación"
+             
+             class="navegacion": Para aplicar estilos CSS
+             id="navegacion": Para manipular con JavaScript
+        -->
+
+        <a href="#sobre-mi" class="nav-link">Sobre Mí</a>
+        <!-- A: Enlace (anchor = ancla).
+             href="#sobre-mi": 
+             - El # indica que es un enlace interno (dentro de la misma página)
+             - Lleva a un elemento con id="sobre-mi"
+             - Sin #, sería un enlace a otra página
+             
+             class="nav-link": Clase para estilos del enlace
+             
+             "Sobre Mí": Texto visible del enlace
+        -->
+
+        <a href="#proyectos" class="nav-link">Proyectos</a>
+        <!-- Segundo enlace: lleva a la sección de proyectos -->
+
+        <a href="#contacto" class="nav-link">Contacto</a>
+        <!-- Tercer enlace: lleva a la sección de contacto -->
+    </nav>
+
+    <!-- =====================================================
+         SECCIÓN DE COLUMNAS INFORMATIVAS
+         ===================================================== 
+         Tres columnas con información sobre experiencia, logros y filosofía
+    -->
+    <section class="seccion-columnas" aria-label="Descripción del servicio">
+        <!-- SECTION: Etiqueta semántica para agrupar contenido relacionado.
+             
+             class="seccion-columnas": Para aplicar estilos CSS
+             
+             aria-label="Descripción del servicio":
+             - Etiqueta descriptiva para lectores de pantalla
+             - Ayuda a usuarios con discapacidad visual a entender el propósito de esta sección
+        -->
+
+        <article class="columna">
+            <!-- ARTICLE: Contenido independiente que tiene sentido por sí solo.
+                 Se puede extraer de la página y seguiría teniendo sentido.
+                 Ejemplos: artículos de blog, productos, tarjetas informativas
+                 
+                 class="columna": Para aplicar estilos CSS
+            -->
+
+            <h3>Experiencia</h3>
+            <!-- H3: Subtítulo de nivel 3.
+                 Jerarquía de títulos:
+                 H1 (más importante) > H2 > H3 > H4 > H5 > H6 (menos importante)
+                 No saltes niveles (no hagas H1 y luego H4 sin H2 y H3)
+            -->
+
+            <p>Más de 10 años dedicados al basketball profesional, desarrollando técnicas avanzadas y liderazgo en equipo.</p>
+            <!-- P: Párrafo con el contenido descriptivo -->
+        </article>
+
+        <article class="columna">
+            <!-- Segunda columna: Logros -->
+            <h3>Logros</h3>
+            <p>Campeonatos nacionales, reconocimientos internacionales y desarrollo de jóvenes talentos en academias especializadas.</p>
+        </article>
+
+        <article class="columna">
+            <!-- Tercera columna: Filosofía -->
+            <h3>Filosofía</h3>
+            <p>Creo en el trabajo duro, la disciplina constante y el desarrollo integral del atleta como persona y profesional.</p>
+        </article>
+    </section>
+
+    <!-- =====================================================
+         SECCIÓN DE PLANES DE PRECIOS
+         ===================================================== 
+         Muestra diferentes planes de entrenamiento con sus precios
+    -->
+    <section class="seccion-planes" aria-label="Planes de entrenamiento disponibles">
+        <!-- SECTION para la sección de planes de precios.
+             aria-label describe el propósito de esta sección
+        -->
+
+        <h2 class="titulo-seccion">Planes de Entrenamiento</h2>
+        <!-- H2: Título de nivel 2 para esta sección.
+             Jerarquía: H1 (título principal de la página) > H2 (títulos de secciones)
+        -->
+        
+        <div class="contenedor-planes">
+            <!-- DIV: Contenedor genérico sin significado semántico.
+                 Se usa solo para agrupar elementos y aplicar estilos.
+                 class="contenedor-planes": Para crear el grid CSS de las tarjetas
+            -->
+
+            <!-- =====================================================
+                 PLAN 1: PLAN BÁSICO
+                 ===================================================== 
+            -->
+            <article class="card-plan">
+                <!-- ARTICLE: Cada plan es un contenido independiente -->
+
+                <h3>Plan Básico</h3>
+                <!-- H3: Título del plan (nivel 3 en la jerarquía) -->
+
+                <p class="precio">$500<span>/mes</span></p>
+                <!-- P con clase "precio": Para el precio destacado.
+                     SPAN: Elemento inline (en línea) para estilizar parte del texto.
+                     - El $500 será grande
+                     - El "/mes" será pequeño (se controla en CSS)
+                -->
+
+                <p class="descripcion">Entrenamiento fundamental para principiantes con sesiones grupales.</p>
+                <!-- P con clase "descripcion": Descripción del plan -->
+
+                <hr>
+                <!-- HR: Línea horizontal (horizontal rule).
+                     Se usa para separar visualmente secciones de contenido.
+                     Es un elemento vacío (no tiene etiqueta de cierre)
+                -->
+
+                <ul class="lista-beneficios">
+                    <!-- UL: Lista desordenada (unordered list).
+                         Los elementos no tienen un orden específico.
+                         Por defecto muestra viñetas (bullets)
+                    -->
+
+                    <li>✓ 2 sesiones semanales</li>
+                    <!-- LI: Elemento de lista (list item).
+                         ✓ es el símbolo de checkmark (palomita)
+                    -->
+
+                    <li>✓ Acceso a gimnasio</li>
+                    <!-- Segundo beneficio -->
+
+                    <li>✓ Plan nutricional básico</li>
+                    <!-- Tercer beneficio -->
+                </ul>
+
+                <hr>
+                <!-- Otra línea separadora -->
+
+                <a href="#contratar" class="boton-precio">Contratar Ahora</a>
+                <!-- A: Enlace estilizado como botón.
+                     href="#contratar": Llevaría a una sección con id="contratar"
+                     class="boton-precio": Le da estilos de botón en CSS
+                     
+                     Nota: Usamos <a> y no <button> porque es un ENLACE (navega a otro lugar).
+                     Los <button> son para ACCIONES (enviar formulario, abrir modal, etc.)
+                -->
+            </article>
+
+            <!-- =====================================================
+                 PLAN 2: PLAN INTERMEDIO (DESTACADO)
+                 ===================================================== 
+            -->
+            <article class="card-plan destacado">
+                <!-- Tiene DOS clases: "card-plan" y "destacado".
+                     "destacado": Le da estilos especiales (borde dorado, más grande)
+                -->
+
+                <span class="etiqueta-popular">MÁS POPULAR</span>
+                <!-- SPAN: Elemento inline para texto pequeño.
+                     class="etiqueta-popular": Etiqueta flotante arriba de la tarjeta.
+                     Se posiciona con CSS usando position: absolute
+                -->
+
+                <h3>Plan Intermedio</h3>
+
+                <p class="precio">$800<span>/mes</span></p>
+
+                <p class="descripcion">Entrenamiento avanzado con seguimiento personalizado y análisis de rendimiento.</p>
+
+                <hr>
+
+                <ul class="lista-beneficios">
+                    <li>✓ 4 sesiones semanales</li>
+                    <li>✓ Entrenamiento personalizado</li>
+                    <li>✓ Plan nutricional avanzado</li>
+                    <li>✓ Análisis de rendimiento</li>
+                    <!-- Este plan tiene MÁS beneficios que el básico -->
+                </ul>
+
+                <hr>
+
+                <a href="#contratar" class="boton-precio">Contratar Ahora</a>
+            </article>
+
+            <!-- =====================================================
+                 PLAN 3: PLAN PROFESIONAL
+                 ===================================================== 
+            -->
+            <article class="card-plan">
+                <h3>Plan Profesional</h3>
+
+                <p class="precio">$1500<span>/mes</span></p>
+
+                <p class="descripcion">Entrenamiento elite para atletas profesionales con coach dedicado.</p>
+
+                <hr>
+
+                <ul class="lista-beneficios">
+                    <li>✓ Sesiones ilimitadas</li>
+                    <li>✓ Coach personal 24/7</li>
+                    <li>✓ Nutricionista exclusivo</li>
+                    <li>✓ Fisioterapia incluida</li>
+                    <li>✓ Acceso a instalaciones VIP</li>
+                    <!-- El plan más caro tiene AÚN MÁS beneficios -->
+                </ul>
+
+                <hr>
+
+                <a href="#contratar" class="boton-precio">Contratar Ahora</a>
+            </article>
+        </div>
+        <!-- Cierre del contenedor de planes -->
+    </section>
+    <!-- Cierre de la sección de planes -->
+
+    <!-- =====================================================
+         JAVASCRIPT PARA FUNCIONALIDAD INTERACTIVA
+         ===================================================== 
+         Código que hace que el menú móvil funcione
+    -->
+    <script>
+        // =====================================================
+        // VARIABLES: Guardamos referencias a elementos HTML
+        // =====================================================
+        
+        const btnMenu = document.getElementById('btnMenu');
+        // const: Declara una variable que NO cambiará su valor.
+        // document.getElementById('btnMenu'): 
+        // - Busca en el documento HTML un elemento con id="btnMenu"
+        // - Retorna una referencia a ese elemento (el botón)
+        // - Ahora podemos manipularlo con JavaScript
+        
+        const navegacion = document.getElementById('navegacion');
+        // Obtiene una referencia al elemento <nav> con id="navegacion"
+        
+        // =====================================================
+        // EVENT LISTENER: Detecta cuando se hace clic en el botón
+        // =====================================================
+        
+        btnMenu.addEventListener('click', () => {
+            // addEventListener('click', función):
+            // - Escucha el evento "click" en btnMenu
+            // - Cuando alguien hace clic, ejecuta la función que está dentro
+            
+            // () => { ... }: Arrow function (función flecha)
+            // Es una forma moderna y corta de escribir funciones en JavaScript
+            
+            navegacion.classList.toggle('activo');
+            // classList: Lista de clases CSS del elemento
+            // toggle('activo'): 
+            // - Si el elemento tiene la clase 'activo', la QUITA
+            // - Si NO la tiene, la AGREGA
+            // Es como un interruptor on/off
+            
+            // Resultado: 
+            // - Click 1: Agrega clase 'activo' → menú se muestra
+            // - Click 2: Quita clase 'activo' → menú se oculta
+            
+            btnMenu.textContent = navegacion.classList.contains('activo') ? 'Cerrar ✕' : 'Menú ☰';
+            // textContent: Cambia el texto dentro del botón
+            
+            // navegacion.classList.contains('activo'): 
+            // - Pregunta: ¿El menú tiene la clase 'activo'?
+            // - Retorna true o false
+            
+            // ? 'Cerrar ✕' : 'Menú ☰':
+            // - Operador ternario (if-else corto)
+            // - Si es true (menú abierto): texto = 'Cerrar ✕'
+            // - Si es false (menú cerrado): texto = 'Menú ☰'
+            
+            // Resultado: El texto del botón cambia según el estado del menú
+        });
+
+        // =====================================================
+        // CERRAR MENÚ AL HACER CLIC EN UN ENLACE
+        // =====================================================
+        
+        document.querySelectorAll('.nav-link').forEach(link => {
+            // querySelectorAll('.nav-link'):
+            // - Busca TODOS los elementos con clase 'nav-link'
+            // - Retorna una lista (array) de elementos
+            
+            // .forEach(link => { ... }):
+            // - Recorre cada elemento de la lista
+            // - 'link' es la variable que representa cada enlace
+            // - Ejecuta el código dentro para cada enlace
+            
+            link.addEventListener('click', () => {
+                // Para cada enlace, agrega un listener de click
+                
+                navegacion.classList.remove('activo');
+                // remove('activo'): QUITA la clase 'activo'
+                // Esto oculta el menú
+                
+                btnMenu.textContent = 'Menú ☰';
+                // Restaura el texto del botón a su estado inicial
+                
+                // ¿Por qué hacemos esto?
+                // Mejor experiencia de usuario en móvil:
+                // - Usuario abre menú → hace clic en "Proyectos"
+                // - La página va a la sección de proyectos
+                // - El menú se cierra automáticamente
+                // - Si no se cerrara, quedaría abierto tapando el contenido
+            });
+        });
+    </script>
+</body>
+<!-- Cierre del body -->
+</html>
+<!-- Cierre del HTML -->

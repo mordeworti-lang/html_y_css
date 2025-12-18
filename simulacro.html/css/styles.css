@@ -1,0 +1,434 @@
+
+:root{
+    --color-texto-interfaz: #2F5249;
+    --color-menu: #2F5249;
+    --color-navmenu: #437057;
+    --texto-principal: #FCF9EA;
+    --h1: #E3DE61;
+    --lineas-de-menu: #E3DE61;
+    /* 
+      ¿Por qué usar variables?
+      1. Cambias un color en UN lugar y se actualiza en TODOS lados
+      2. Código más limpio y mantenible
+      3. Fácil crear temas (modo oscuro, etc.)
+    */
+}
+
+/* ==============================================
+   RESET CSS - ELIMINA ESTILOS POR DEFECTO
+   ============================================== */
+
+*{
+     margin: 0;
+    /* Elimina todos los márgenes externos */
+    
+    padding: 0;
+    /* Elimina todos los rellenos internos */
+    box-sizing: border-box;
+        /* 
+      CRÍTICO: Cambia el modelo de caja
+      
+      Por defecto (content-box):
+      width: 300px + padding: 20px = 340px total
+      
+      Con border-box:
+      width: 300px INCLUYE padding y border = 300px total
+      
+      Esto hace el cálculo de tamaños mucho más predecible
+    */
+    font-family: Courier, monospace;
+}
+
+/* ==============================================
+   CONFIGURACIÓN BASE DEL HTML
+   ============================================== */
+
+html{
+    font-size: 82.5%;
+    /* 
+      TRUCO PARA FACILITAR CÁLCULOS CON REM
+      
+      Por defecto: 1rem = 16px (tamaño base del navegador)
+      Con 62.5%: 1rem = 10px
+      
+      ¿Por qué? Hace los cálculos más fáciles:
+      - 1.6rem = 16px
+      - 2.4rem = 24px
+      - 3.2rem = 32px
+      
+      Pero SIEMPRE usa rem, no px, para mantener accesibilidad
+      (los usuarios pueden cambiar el tamaño base del navegador)
+    */
+}
+
+body{
+    font-size: 1.6rem;
+    line-height: 1.6;
+    /* 
+      Altura de línea = 1.6 veces el tamaño de fuente
+      Mejora la legibilidad (espacio entre líneas)
+      1.5-1.6 es el rango ideal para textos largos
+    */
+}
+
+/* ==============================================
+   HEADER - CABECERA PRINCIPAL
+   ============================================== */
+
+.header{
+    background:var(--color-menu);
+    padding: 20px;
+    /* 
+      Relleno interno de 20px en todos los lados
+      Equivale a:
+      padding-top: 20px;
+      padding-right: 20px;
+      padding-bottom: 20px;
+      padding-left: 20px;
+    */
+    border-radius: 0px 0px 0px 100px;
+    color: var(--texto-principal);
+}
+
+.menu{
+    display: flex;
+    /* 
+    ACTIVA FLEXBOX - sistema de layout unidimensional
+    Convierte este elemento en un contenedor flexible
+    Sus hijos directos se convierten en "flex items"
+    */
+    justify-content: space-between;
+    /* 
+    Distribuye el espacio horizontal (eje principal)
+    space-between: primer elemento a la izquierda, último a la derecha,
+    espacio igual entre elementos intermedios
+    
+    Otros valores comunes:
+    - center: centra todos los elementos
+    - flex-start: alinea a la izquierda
+    - flex-end: alinea a la derecha
+    - space-around: espacio igual alrededor de cada elemento
+    */
+    align-items: center;
+    /* 
+      Alinea verticalmente (eje transversal)
+      center: centra todos los elementos verticalmente
+      
+      Otros valores:
+      - flex-start: arriba
+      - flex-end: abajo
+      - stretch: estira para llenar el contenedor
+    */
+    padding: 15px;
+}
+
+.menu-btn{
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    /* 
+      Cambia el cursor a una "manita" al pasar el mouse
+      Indica que es clickeable
+    */
+    color: var(--texto-principal);
+    padding: 5px 10px;
+    /* 
+      Padding específico: vertical horizontal
+      5px arriba/abajo, 10px izquierda/derecha
+    */
+}
+
+/* ==============================================
+   NAVEGACIÓN - MENÚ DESPLEGABLE
+   ============================================== */
+
+.nav{
+    position: absolute;
+    top: 85px; 
+    /* 
+      Distancia desde el BORDE SUPERIOR
+      85px de separación del top de su contenedor
+    */
+    right: 20px;
+    /* 
+      Distancia desde el BORDE DERECHO
+      20px de separación del lado derecho
+    */
+    width: 250px;
+    display: none;
+     /* 
+      Distancia desde el BORDE SUPERIOR
+      85px de separación del top de su contenedor
+    */
+    background-color: var(--color-navmenu); /* Añade esto para que tenga color */
+    border-radius: 15px; /* Bordes redondeados modernos */
+    box-shadow: 0 10px 25px rgba(236, 233, 233, 0.3); 
+    /* 
+      SOMBRA para dar profundidad
+      Sintaxis: horizontal vertical difuminado color
+      - 0: sin desplazamiento horizontal
+      - 10px: desplazamiento vertical (hacia abajo)
+      - 25px: qué tan difuminada está la sombra
+      - rgba(0, 0, 0, 0.3): negro con 30% de opacidad
+    */
+    padding: 10px 0;
+    z-index: 1000; 
+    /* 
+      CONTROLA EL ORDEN DE APILAMIENTO
+      Valores más altos = más cerca del usuario
+      1000 asegura que el menú flote sobre todo lo demás
+      
+      Piensa en capas:
+      - z-index: 1 (fondo)
+      - z-index: 100 (contenido)
+      - z-index: 1000 (menú flotante)
+    */
+    overflow: hidden;
+    /* 
+      Oculta cualquier contenido que sobresalga del contenedor
+      Útil con border-radius para que los bordes se vean limpios
+    */
+}
+
+.nav.activo{
+    /* 
+      SELECTOR DE CLASE MÚLTIPLE
+      Selecciona elementos que tengan AMBAS clases: .nav Y .activo
+      El JavaScript agrega/quita la clase "activo"
+    */
+    display: grid;
+    justify-content: center;
+    text-align: center;    
+}
+
+/* ==============================================
+   LISTAS DEL MENÚ
+   ============================================== */
+
+.nav ul{
+    list-style: none;
+    /* 
+      Elimina los bullets (•) de la lista
+      Por defecto, <ul> muestra bullets
+    */
+    margin: 0;
+    padding: 0;
+    /* Elimina espaciado por defecto de las listas */
+}
+
+.nav a{ 
+    display: block;
+    /* 
+      Convierte el enlace en elemento de bloque
+      Por defecto, <a> es inline (solo ocupa lo que necesita)
+      block hace que ocupe todo el ancho disponible
+      = área clickeable más grande
+    */
+    text-decoration: none;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--lineas-de-menu);
+    /* 
+      Línea de separación entre enlaces
+      1px de grosor, sólida, color amarillo
+    */
+    color: var(--texto-principal);
+    transition: all 0.3s ease;
+    /* 
+      ANIMACIÓN SUAVE de TODAS las propiedades
+      
+      Sintaxis: property duration timing-function
+      - all: anima todos los cambios
+      - 0.3s: duración de 0.3 segundos
+      - ease: curva de animación (lento-rápido-lento)
+      
+      Cuando el enlace cambie (hover), lo hará suavemente
+      
+      Otras curvas:
+      - linear: velocidad constante
+      - ease-in: empieza lento
+      - ease-out: termina lento
+      - ease-in-out: empieza y termina lento
+    */
+    font-weight: bold;
+}
+
+nav a:hover{
+    /* 
+      :hover = PSEUDO-CLASE
+      Se aplica cuando pasas el mouse sobre el elemento
+    */
+    background: var(--lineas-de-menu);
+    color: var(--color-texto-interfaz);
+    border-radius: 10px;
+}
+
+.registro{
+    display: flex;
+    justify-content:space-around;
+    right: 60px;
+    height: 50px;
+    font-size: 1.3rem;
+    width: 100%;
+}
+
+.sign-up{
+    background: var(--color-menu);
+    border-radius: 15px;
+}
+
+.texto-principal{
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.texto-principal h1{
+    font-size: 3.5rem;
+    color: var(--h1);
+    margin-bottom: 15px;
+    /* Espacio debajo del título */
+    font-weight: bold;
+}
+
+.texto-principal p{
+    font-size: 1.6rem;
+}
+
+/* ==============================================
+   PLAN - BOTONES DE LLAMADA A LA ACCIÓN
+   ============================================== */
+
+.plan{
+    display: flex;
+    justify-content: space-around;   
+    padding: 10px 20px;  
+    margin: 15px auto;
+}
+
+.plan ul{
+    list-style: none;
+}
+
+.plan li{
+    display: inline-block;
+}
+
+.plan a{
+    text-decoration: none;
+    color: var(--texto-principal);
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border-radius: 15px;
+}
+
+.free{
+    background: var(--color-navmenu);
+    border-radius: 15px;
+    margin: 15px 0px;
+    padding: 10px 20px;
+}
+
+.plan a:hover{
+    background: var(--lineas-de-menu);
+    color: var(--color-texto-interfaz);
+    padding: 10px 15px;
+    margin: 15px 0px;
+}
+
+/* ==============================================
+   MAIN - CONTENIDO PRINCIPAL
+   ============================================== */
+main{
+    font-weight: bold;
+}
+
+.bakgraun{
+    background: var(--color-menu);
+    border-radius: 0px 130px;
+    color: var(--texto-principal);
+}
+
+.articulos{
+    gap: 40px;
+}
+
+.article{
+    display: grid;
+    justify-items: center;
+    padding: 50px;
+}
+
+.article h2{
+    color: #00B7B5;
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.article h3{
+    font-size: 1.9rem;
+    color: #117574;
+    
+}
+
+.img{
+    width: 100%;
+    max-width: 400px;
+}
+.footer{
+    background: var(--color-menu);
+    text-align: center;
+    padding: 15px 20px;
+    border-radius:0px 130px 0px 0px;
+    color: var(--texto-principal);
+}
+
+
+
+@media (min-width: 768px){
+    
+    .menu-btn{
+        display: none;
+    }
+    .nav{
+        position: static;
+        display: flex;
+        justify-content: space-around;
+        background: none;
+        border: none;
+        box-shadow: none;
+        width: auto;
+        padding: 0;
+    }
+    .nav a{
+        border: none;
+        margin-left: 0px 15px;
+    }
+    
+    .nav ul.n{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .sign-up{
+        background: var(--color-navmenu);
+    }
+
+    .article{
+        display: flex;
+        align-items: center;
+    }
+
+    .article.primero{
+        flex-direction: row-reverse;
+    }
+
+    .footer{
+        display: flex;
+        justify-content: space-around;
+    }
+
+}
+
+    
+        
